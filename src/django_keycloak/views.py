@@ -47,7 +47,8 @@ class Login(RedirectView):
             .authorization_url(
                 redirect_uri=nonce.redirect_uri,
                 scope='openid given_name family_name email',
-                state=str(nonce.state)
+                state=str(nonce.state),
+                response_mode='query'
             )
 
         if self.request.realm.server.internal_url:
